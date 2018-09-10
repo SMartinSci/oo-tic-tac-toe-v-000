@@ -80,6 +80,12 @@ def won?
     end
 end
 
+def won?(board)
+ WIN_COMBINATIONS.find do |i| 
+   board[i[0]] == board[i[1]] && board[i[0]] == board[i[2]] && position_taken?(board, i[0])
+end  
+end
+
 def full?
     @board.all?{|token| token != " " }
   end
