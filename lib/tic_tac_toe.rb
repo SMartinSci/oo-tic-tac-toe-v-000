@@ -51,19 +51,6 @@ def turn
   end
 end
 
-
-def turn(board)
-  puts "Please enter 1-9:"
-  input = gets.strip
-  index = input_to_index(input)
-  if valid_move?(board, index)
-    token = current_player(board)
-player_move(board, index, token)
-     display_board(board)
-  else
-    turn(board)
-  end
-end
 def turn_count
     @board.count{|token| token == "X" || token == "O"}
 end
@@ -78,12 +65,6 @@ def won?
         return com
       end
     end
-end
-
-def won?(board)
- WIN_COMBINATIONS.find do |i| 
-   board[i[0]] == board[i[1]] && board[i[0]] == board[i[2]] && position_taken?(board, i[0])
-end  
 end
 
 def full?
